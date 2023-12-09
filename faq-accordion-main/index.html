@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Work Sans", sans-serif;
+        background-image: url("./assets/images/background-pattern-desktop.svg");
+        background-repeat: no-repeat;
+        background-color: hsl(275, 100%, 97%);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        max-width: 600px;
+        margin: 1em 0;
+        background-color: white;
+        padding: 2em;
+        border-radius: 1em;
+      }
+
+      h1 {
+        font-size: 3em;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+      }
+
+      div p {
+        display: flex;
+      }
+
+      div h4 {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      #accordion-container {
+        margin-top: 1.5em;
+        display: grid;
+        transition: grid-template-rows 0.75s;
+        grid-template-rows: min-content 0fr;
+        padding-bottom: 0.757em;
+        border-bottom: 1px solid gainsboro;
+      }
+
+      #accordion-container p {
+        margin: 0;
+        overflow: hidden;
+        color: hsl(292, 16%, 49%);
+        transition: padding 1s;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function toggle(id) {
+        var element = document.querySelector(`div[data-id='${id}']`);
+
+        let accordionIcon = element.querySelector("img");
+        let paragraphElement = element.querySelector("p");
+
+        const isActive = element.style.gridTemplateRows === "min-content 1fr";
+        if (isActive) {
+          accordionIcon.src = "./assets/images/icon-plus.svg";
+          element.style.gridTemplateRows = "min-content 0fr";
+          paragraphElement.style.padding = "0";
+        } else {
+          accordionIcon.src = "./assets/images/icon-minus.svg";
+          element.style.gridTemplateRows = "min-content 1fr";
+          paragraphElement.style.padding = "1em 0";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1>
+        <img src="./assets/images/icon-star.svg" alt="Frontend Mentor logo" />
+        FAQs
+      </h1>
+      <div data-id="1" onclick="toggle(1)" id="accordion-container">
+        <div id="accordion-header" class="accordion-header">
+          <h4>What is Frontend Mentor, and how will it help me?</h4>
+          <img src="./assets/images/icon-plus.svg" alt="Arrow down" />
+        </div>
+
+        <p>
+          Frontend Mentor offers realistic coding challenges to help developers
+          improve their frontend coding skills with projects in HTML, CSS, and
+          JavaScript. It's suitable for all levels and ideal for portfolio
+          building.
+        </p>
+      </div>
+      <div data-id="2" onclick="toggle(2)" id="accordion-container">
+        <div id="accordion-header" class="accordion-header">
+          <h4>Is Frontend Mentor free?</h4>
+          <img src="./assets/images/icon-plus.svg" alt="Arrow down" />
+        </div>
+        <p>
+          Yes, Frontend Mentor offers both free and premium coding challenges,
+          with the free option providing access to a range of projects suitable
+          for all skill levels.
+        </p>
+      </div>
+      <div data-id="3" onclick="toggle(3)" id="accordion-container">
+        <div id="accordion-header" class="accordion-header">
+          <h4>Can I use Frontend Mentor projects in my portfolio?</h4>
+          <img src="./assets/images/icon-plus.svg" alt="Arrow down" />
+        </div>
+        <p>
+          Yes, you can use projects completed on Frontend Mentor in your
+          portfolio. It's an excellent way to showcase your skills to potential
+          employers!
+        </p>
+      </div>
+      <div data-id="4" onclick="toggle(4)" id="accordion-container">
+        <div id="accordion-header" class="accordion-header">
+          <h4>
+            How can I get help if I'm stuck on a Frontend Mentor challenge?
+          </h4>
+          <img src="./assets/images/icon-plus.svg" alt="Arrow down" />
+        </div>
+        <p>
+          The best place to get help is inside Frontend Mentor's Discord
+          community. There's a help channel where you can ask questions and seek
+          support from other community members.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
